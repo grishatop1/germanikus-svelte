@@ -4,6 +4,10 @@
   import { toGermanikus, fromGermanikus } from "./consts/germanikus";
   import { blur } from "svelte/transition";
 
+  let src = "/src/assets/gh.svg";
+  let alt = "See the source on Github!";
+  let href = "http://github.com/grishatop1/germanikus-svelte"
+
   let userInput = [];
 
   userInputStore.subscribe(value => {
@@ -19,7 +23,7 @@
       for (const letter of userInput) {
           output.push(
               (letter in dict ? dict[letter] : letter)
-          )
+          );
       }
   };
 
@@ -44,8 +48,18 @@
   </span>
 </div>
 
+<a class="source-link" {href} target="_blank">
+  <img {src} {alt} title={alt} height="25">
+</a>
+
 <style>
   .output-letter {
     font-size: 3em;
+  }
+  .source-link {
+    color: white;
+    display: flex;
+    position: fixed;
+    bottom: 5%;
   }
 </style>
