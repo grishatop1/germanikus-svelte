@@ -1,18 +1,22 @@
 <script>
     import { fade } from "svelte/transition";
+    import { userInputStore } from "../stores";
 
-    export let userInputStore;
+    export let onChange = () => {};
     let current = [];
-    const re = /[A-Za-z0-9]/
+    const re = /[a-z0-9]/
 
     document.onkeydown = (e) => {
       e.preventDefault()
       if (e.key == "Backspace") current.pop();
       if (e.key == " ") current.push(" ");
       current = current;
+      userInputStore.set(current);
+      onChange();
       if (!re.test(e.key) || e.key.length != 1) return;
       current.push(e.key);
       userInputStore.set(current);
+      onChange();
     }
 </script>
 
@@ -48,7 +52,7 @@
   }
   .letter {
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight:lighter;
   }
 
   @keyframes blink {
