@@ -33,10 +33,15 @@
   <input type="checkbox" bind:checked={decode} on:change={convert}>
 </label>
 
-<div>
+<div class="output-letter">
   {#each output as letter}
-    <span class="output-letter" transition:blur>{letter}</span>
+    <span transition:blur>{letter}</span>
   {/each}
+  <span id="placeholder">
+    {#if output.length == 0}
+      &ZeroWidthSpace;
+    {/if}
+  </span>
 </div>
 
 <style>
