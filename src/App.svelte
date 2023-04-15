@@ -26,15 +26,22 @@
           );
       }
   };
+
+  let panelVisible = false;
   let handleInfoPanel = () => {
-    const infopanel = document.getElementById("info-panel");
-    infopanel.style.display = "flex";
+    panelVisible = !panelVisible;
   }
 
 </script>
 <p class="info-trigger" on:mousedown={handleInfoPanel}>
   what's germanikus?
 </p>
+
+{#if panelVisible}
+<div class="info-panel">
+  asd
+</div>
+{/if}
 
 <h1 style="margin: 10px;">Germanikus</h1>
 
@@ -43,10 +50,6 @@
   Decode
   <input type="checkbox" bind:checked={decode} on:change={convert}>
 </label>
-
-<div class="info-panel">
-  asd
-</div>
 
 <div class="output-letter">
   {#each output as letter}
@@ -75,11 +78,9 @@
   }
   .info-panel {
     display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+    position: relative;
+    top: 1%;
+    left: 2%;
     display: none;
   }
   .output-letter {

@@ -7,7 +7,7 @@
     const re = /[a-z0-9]/
 
     document.onkeydown = (e) => {
-      e.preventDefault()
+      //e.preventDefault()
       if (e.key == "Backspace") current.pop();
       if (e.key == " " && current.length) current.push(" ");
       current = current;
