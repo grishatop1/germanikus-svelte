@@ -31,12 +31,12 @@
 
 </script>
 
-<button id="info-trigger" on:mousedown={() => {panelVisible = !panelVisible}}>
+<p class="info-trigger" on:mousedown={() => {panelVisible = !panelVisible}}>
   what's germanikus?
-</button>
+</p>
 
 {#if panelVisible}
-<div id="info-panel">
+<div class="info-panel">
   {panelVisible}
 </div>
 {/if}
@@ -65,7 +65,7 @@
 </a>
 
 <style>
-  #info-trigger {
+  .info-trigger {
     color: #70707a;
     font-weight: bold;
     display: flex;
@@ -74,7 +74,7 @@
     right: 2%;
     cursor: pointer;
   }
-  #info-panel {
+  .info-panel {
     display: flex;
     position: relative;
     top: 1%;
