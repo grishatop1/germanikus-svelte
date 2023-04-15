@@ -26,10 +26,9 @@
           );
       }
   };
-
   let handleInfoPanel = () => {
     const infopanel = document.getElementById("info-panel");
-    
+    infopanel.style.display = "flex";
   }
 
 </script>
@@ -75,6 +74,12 @@
     cursor: pointer;
   }
   .info-panel {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
     display: none;
   }
   .output-letter {

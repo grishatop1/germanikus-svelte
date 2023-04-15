@@ -9,7 +9,7 @@
     document.onkeydown = (e) => {
       e.preventDefault()
       if (e.key == "Backspace") current.pop();
-      if (e.key == " ") current.push(" ");
+      if (e.key == " " && current.length) current.push(" ");
       current = current;
       userInputStore.set(current);
       onChange();
