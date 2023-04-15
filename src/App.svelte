@@ -28,18 +28,16 @@
   };
 
   let panelVisible = false;
-  let handleInfoPanel = () => {
-    panelVisible = !panelVisible;
-  }
 
 </script>
-<p class="info-trigger" on:mousedown={handleInfoPanel}>
+
+<button id="info-trigger" on:mousedown={() => {panelVisible = !panelVisible}}>
   what's germanikus?
-</p>
+</button>
 
 {#if panelVisible}
-<div class="info-panel">
-  asd
+<div id="info-panel">
+  {panelVisible}
 </div>
 {/if}
 
@@ -67,7 +65,7 @@
 </a>
 
 <style>
-  .info-trigger {
+  #info-trigger {
     color: #70707a;
     font-weight: bold;
     display: flex;
@@ -76,12 +74,11 @@
     right: 2%;
     cursor: pointer;
   }
-  .info-panel {
+  #info-panel {
     display: flex;
     position: relative;
     top: 1%;
     left: 2%;
-    display: none;
   }
   .output-letter {
     font-size: 3em;
