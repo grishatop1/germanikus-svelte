@@ -27,19 +27,33 @@
       }
   };
 
-  let panelVisible = false;
+  let panelVisible = true; //false;
 
 </script>
 
-<p class="info-trigger" on:mousedown={() => {panelVisible = !panelVisible}}>
+<div class="info-trigger" on:mousedown={() => {panelVisible = !panelVisible}}>
   what's germanikus?
-</p>
 
-{#if panelVisible}
-<div class="info-panel">
-  {panelVisible}
+  {#if panelVisible}
+  <div class="info-panel">
+  Germanikus is a basic substitution cypher, where
+  the letters of the codeword "germanikus" are replaced
+  in accordance with this table:
+  <pre class="info-pre">
+    germanikus
+    1234567890
+  </pre>
+  And in some sources:
+  <pre class="info-pre">
+    germanikus
+    0123456789
+  </pre>
+  The letters not found in the codeword are simply
+  written as they are.
+  </div>
+  {/if}
 </div>
-{/if}
+
 
 <h1 style="margin: 10px;">Germanikus</h1>
 
@@ -66,19 +80,40 @@
 
 <style>
   .info-trigger {
-    color: #70707a;
+    color: #818a9a;
     font-weight: bold;
     display: flex;
     position: fixed;
-    top: 1%;
+    top: 3%;
     right: 2%;
     cursor: pointer;
+    font-size: 140%;
   }
   .info-panel {
     display: flex;
-    position: relative;
-    top: 1%;
-    left: 2%;
+    flex-direction: column;
+    position: fixed;
+    background-color: #c1cada;
+    width: 26%;
+    height: 40%;
+    top: 10%;
+    right: 2%;
+
+    border-radius: 5%;
+
+    padding: 2%;
+
+    color: #1c1c1e;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: scroll;
+  }
+  .info-pre {
+    font-weight: bold;
+    font-size: 111%;
+    white-space: pre-line;
   }
   .output-letter {
     font-size: 3em;
