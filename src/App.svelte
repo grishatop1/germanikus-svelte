@@ -27,7 +27,7 @@
       }
   };
 
-  let panelVisible = true; //false;
+  let panelVisible = false;
 
 </script>
 
