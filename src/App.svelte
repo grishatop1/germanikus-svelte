@@ -4,9 +4,9 @@
   import { toGermanikus, fromGermanikus } from "./consts/germanikus";
   import { blur } from "svelte/transition";
 
-  let src = "/src/assets/gh.svg";
-  let alt = "See the source on Github!";
-  let href = "http://github.com/grishatop1/germanikus-svelte"
+  const src = "/src/assets/gh.svg";
+  const alt = "See the source on Github!";
+  const href = "http://github.com/grishatop1/germanikus-svelte"
 
   let userInput = [];
 
@@ -27,7 +27,15 @@
       }
   };
 
+  let handleInfoPanel = () => {
+    const infopanel = document.getElementById("info-panel");
+    
+  }
+
 </script>
+<p class="info-trigger" on:mousedown={handleInfoPanel}>
+  what's germanikus?
+</p>
 
 <h1 style="margin: 10px;">Germanikus</h1>
 
@@ -36,6 +44,10 @@
   Decode
   <input type="checkbox" bind:checked={decode} on:change={convert}>
 </label>
+
+<div class="info-panel">
+  asd
+</div>
 
 <div class="output-letter">
   {#each output as letter}
@@ -53,6 +65,18 @@
 </a>
 
 <style>
+  .info-trigger {
+    color: #70707a;
+    font-weight: bold;
+    display: flex;
+    position: fixed;
+    top: 1%;
+    right: 2%;
+    cursor: pointer;
+  }
+  .info-panel {
+    display: none;
+  }
   .output-letter {
     font-size: 3em;
   }
