@@ -35,6 +35,7 @@
   what's germanikus?
 
   {#if panelVisible}
+  <!--The info panel always displays below the caret for some reason-->
   <div class="info-panel" transition:slide>
   Germanikus is a basic substitution cypher, where
   the letters of the codeword "germanikus" are replaced
@@ -102,9 +103,7 @@
     right: 2%;
 
     border-radius: 5%;
-
     padding: 2%;
-
     color: #1c1c1e;
     font-size: 15px;
     font-weight: bold;
@@ -125,5 +124,10 @@
     display: flex;
     position: fixed;
     bottom: 5%;
+  }
+  @media (max-width: 550px) {
+    .info-panel {
+      width: 62%;
+    }
   }
 </style>
