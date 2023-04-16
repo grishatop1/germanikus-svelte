@@ -2,7 +2,7 @@
   import Input from "./lib/Input.svelte";
   import { userInputStore } from "./stores";
   import { toGermanikus, fromGermanikus } from "./consts/germanikus";
-  import { blur } from "svelte/transition";
+  import { blur, slide } from "svelte/transition";
 
   const src = "/src/assets/gh.svg";
   const alt = "See the source on Github!";
@@ -35,10 +35,10 @@
   what's germanikus?
 
   {#if panelVisible}
-  <div class="info-panel">
+  <div class="info-panel" transition:slide>
   Germanikus is a basic substitution cypher, where
   the letters of the codeword "germanikus" are replaced
-  in accordance with this table:
+  with numbers, in accordance with this table:
   <pre class="info-pre">
     germanikus
     1234567890
@@ -62,6 +62,8 @@
   Decode
   <input type="checkbox" bind:checked={decode} on:change={convert}>
 </label>
+
+<p style="font-size:small; font-style:italic">Doesn't work on mobile yet, sorry for that!</p>
 
 <div class="output-letter">
   {#each output as letter}
