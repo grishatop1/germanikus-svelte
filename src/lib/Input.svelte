@@ -40,6 +40,8 @@
     height: 1.5em;
     background-color: white;
     display: inline-block;
+    position: relative;
+    z-index: -1;
     animation: blink 0.5s infinite alternate;
     transform: translateY(7px);
     margin-left: 2px;
