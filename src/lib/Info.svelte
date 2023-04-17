@@ -5,10 +5,12 @@
 </script>
 
 <div class="info">
-  <div
-    class="info-trigger" on:mousedown={() => {panelVisible = !panelVisible;}}
-  >
-    what's germanikus?
+  <div class="info-trigger" on:mousedown={() => {panelVisible = !panelVisible;}}>
+    {#if !panelVisible}
+      what's germanikus?
+    {:else}
+      hide
+    {/if}
   </div>
   {#if panelVisible}
     <div class="info-panel" transition:slide on:mousedown={() => {panelVisible = false;}}>
@@ -50,7 +52,7 @@
     right: 20px;
     max-width: 350px;
     cursor: pointer;
-    border-radius: 5%;
+    border-radius: 20px;
     color: white;
     font-size: 15px;
     font-weight: bold;
@@ -59,8 +61,8 @@
     overflow: scroll;
   }
   .info-pre {
-    font-weight: bold;
-    font-size: 111%;
+    font-weight: bold; 
+    font-size: 17px;
     white-space: pre-line;
   }
 

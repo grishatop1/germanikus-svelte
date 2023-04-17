@@ -5,6 +5,10 @@
     let current = [];
     const re = /[A-Za-z0-9]/
 
+    userInputStore.subscribe((value) => {
+      current = value;
+    })
+
     document.onkeydown = (e) => {
       //e.preventDefault()
       if (e.key == "Backspace") current.pop();
