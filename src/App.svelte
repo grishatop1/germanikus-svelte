@@ -25,7 +25,7 @@
 
 </script>
 
-<h1 style="margin: 10px;">Germanikus</h1>
+<h1 style="margin: 10px;">Germanikus Cipher</h1>
 
 <label>
   <Input onChange={convert} />
