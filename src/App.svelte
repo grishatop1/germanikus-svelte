@@ -37,7 +37,7 @@
   {#if panelVisible}
   <!--The info panel always displays below the caret for some reason-->
   <div class="info-panel" transition:slide>
-  Germanikus is a basic substitution cypher, where
+  Germanikus is a basic substitution cipher, where
   the letters of the codeword "germanikus" are replaced
   with numbers, in accordance with this table:
   <pre class="info-pre">
