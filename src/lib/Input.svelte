@@ -3,7 +3,7 @@
 
     export let onChange = () => {};
     let current = [];
-    const re = /[a-z0-9]/
+    const re = /[A-Za-z0-9]/
 
     document.onkeydown = (e) => {
       //e.preventDefault()
@@ -13,7 +13,7 @@
       userInputStore.set(current);
       onChange();
       if (!re.test(e.key) || e.key.length != 1) return;
-      current.push(e.key);
+      current.push(e.key.toLowerCase());
       userInputStore.set(current);
       onChange();
     }
