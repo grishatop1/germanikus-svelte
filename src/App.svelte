@@ -19,6 +19,8 @@
   let decodeInput = false;
   $: decodeStore.set(decodeInput)
 
+  $: decodeInput, convert()
+
   let output = [];
   let convert = () => {
       let dict = (!decodeInput ? toGermanikus : fromGermanikus)
@@ -55,11 +57,10 @@
 </div>
 </div>
 
-{#if !isTouchDevice}
 <a class="source-link" href="http://github.com/grishatop1/germanikus-svelte" target="_blank">
   <img src="/src/assets/gh.svg" alt="See the source on Github!" height="25">
 </a>
-{:else}
+{#if isTouchDevice}
   <Keyboard />
 {/if}
 
@@ -74,5 +75,11 @@
   }
   .source-link {
     color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 1.5em;
+    user-select: none;
   }
 </style>
