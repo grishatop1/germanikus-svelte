@@ -4,7 +4,7 @@
   import Keyboard from "./lib/Keyboard.svelte";
   import Checkbox from "./lib/Checkbox.svelte";
   import Convert from "./lib/Convert.svelte";
-  import { blur } from "svelte/transition";
+  import { fade } from "svelte/transition";
 
   let isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
   let output = [];
@@ -21,7 +21,7 @@
 
 <div class="output-letter">
   {#each output as letter}
-    <span transition:blur>{letter}</span>
+    <span transition:fade>{letter}</span>
   {/each}
   <span id="placeholder">
     {#if output.length == 0}
