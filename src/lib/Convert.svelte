@@ -13,7 +13,7 @@
   })
 
   export let output = [];
-  export function convert() {
+  let convert = () => {
       let dict = (!decodeInput ? toGermanikus : fromGermanikus)
       output = []
       for (const letter of userInput) {
