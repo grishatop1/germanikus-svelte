@@ -33,7 +33,7 @@
 
 <style>
   .info-trigger {
-    color: #818a9a;
+    color: #818189;
     font-weight: bold;
     position: absolute;
     top: 20px;

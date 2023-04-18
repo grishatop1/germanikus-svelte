@@ -3,44 +3,19 @@
   import Info from "./lib/Info.svelte";
   import Keyboard from "./lib/Keyboard.svelte";
   import Checkbox from "./lib/Checkbox.svelte";
-  import { userInputStore, decodeStore } from "./stores";
-  import { toGermanikus, fromGermanikus } from "./consts/germanikus";
+  import Convert from "./lib/Convert.svelte";
   import { blur } from "svelte/transition";
 
   let isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-  let userInput = [];
-
-  userInputStore.subscribe(value => {
-    userInput = value;
-  })
-
-  let decodeInput = false;
-  decodeStore.subscribe(value => {
-    decodeInput = value;
-  })
-
-  $: userInput, convert()
-  $: decodeInput, convert()
-
   let output = [];
-  let convert = () => {
-      let dict = (!decodeInput ? toGermanikus : fromGermanikus)
-      output = []
-      for (const letter of userInput) {
-          output.push(
-              (letter in dict ? dict[letter] : letter)
-          );
-      }
-  };
 
 </script>
-
-<Info />
 
 <div class="content">
 <h1 style="margin: 10px;">Germanikus Cipher</h1>
 
+<Convert bind:output/>
+<Info />
 <Input />
 <Checkbox />
 
