@@ -59,6 +59,7 @@
     text-align: center;
     word-wrap: break-word;
     overflow: scroll;
+    z-index: 50;
   }
   .info-pre {
     font-weight: bold; 
