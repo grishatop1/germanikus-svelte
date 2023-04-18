@@ -1,9 +1,9 @@
-# Germanikus EnDec
+# Germanikus Cipher
 
-## an encoder-decoder for the germanikus cypher
+an encoder-decoder for the germanikus cipher
 
-### Usage
+## Usage
 
 `npm i && npm run dev`
 
-[Main repo](https://github.com/grishatop1/germanikus-svelte) also hosted on [netlify](https://germanikus.netlify.app/).
+Also hosted on [netlify](https://germanikus.netlify.app/).
