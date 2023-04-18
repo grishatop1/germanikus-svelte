@@ -3,19 +3,16 @@
     import { userInputStore, decodeStore } from "../stores";
 
     let decode = false;
-    decodeStore.subscribe((value) => {
-        decode = value;
-    });
+    
 
     let generateKeyboard = () => {
+        document.getElementById("keyboard").innerHTML = "";
         let order = [];
         if (decode) {
             order = [
-                ["1", "2", "3"],
-                ["4", "5", "6"],
-                ["7", "8", "9"],
-                ["0", "backspace"],
-                ["space"],
+                ["1", "2", "3", "4", "5"],
+                ["6", "7", "8", "9", "0"],
+                ["space", "backspace"],
             ];
         } else {
             order = [
@@ -33,7 +30,7 @@
             row.className = "keyrow";
             for (let j = 0; j < order[i].length; j++) {
                 button = document.createElement("button");
-                if (order[i][j] === "space") {
+                if (order[i][j] === "space" && !decode) {
                     button.style.width = "100%";
                 }
                 button.innerHTML = order[i][j];
@@ -63,6 +60,10 @@
 
     onMount(() => {
         generateKeyboard();
+        decodeStore.subscribe((value) => {
+            decode = value;
+            generateKeyboard();
+        });
     });
 </script>
 

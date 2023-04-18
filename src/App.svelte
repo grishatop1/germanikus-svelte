@@ -34,7 +34,7 @@
 <a class="source-link" href="http://github.com/grishatop1/germanikus-svelte" target="_blank">
   <img src="/src/assets/gh.svg" alt="See the source on Github!" height="25">
 </a>
-{#if isTouchDevice}
+{#if isTouchDevice || 1}
   <Keyboard />
 {/if}
 
